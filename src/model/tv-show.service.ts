@@ -87,3 +87,21 @@ export async function allPersistedFavouriteTvShows(): Promise<Array<TvShow>> {
     return [];
   }
 }
+
+export function addTvShowToAListOfFavourites(
+  favs: Array<TvShow>,
+  tvShow: TvShow,
+): Array<TvShow> {
+  return favs.every((favourite: TvShow) => favourite.show.id !== tvShow.show.id)
+    ? favs.concat(tvShow)
+    : favs;
+}
+
+export function removeTvShowFromAListOfFavourites(
+  favs: Array<TvShow>,
+  tvShow: TvShow,
+): Array<TvShow> {
+  return favs.filter(
+    (favourite: TvShow) => favourite.show.id !== tvShow.show.id,
+  );
+}

@@ -3,6 +3,8 @@ import {
   isFavouriteTvShow,
   persistTvShowsAsFavourites,
   allPersistedFavouriteTvShows,
+  addTvShowToAListOfFavourites,
+  removeTvShowFromAListOfFavourites,
 } from '../src/model/tv-show.service';
 import {TvShow} from '../src/model/tv-show.type';
 
@@ -94,4 +96,24 @@ it('Persisting favourites ', async () => {
     tvShowMock3,
     tvShowMock2,
   ]);
+});
+
+it('addTvShowToAListOfFavourites', () => {
+  expect(
+    addTvShowToAListOfFavourites([tvShowMock1, tvShowMock2], tvShowMock3),
+  ).toEqual([tvShowMock1, tvShowMock2, tvShowMock3]);
+  expect(addTvShowToAListOfFavourites([], tvShowMock2)).toEqual([tvShowMock2]);
+  expect(
+    addTvShowToAListOfFavourites([tvShowMock1, tvShowMock2], tvShowMock1),
+  ).toEqual([tvShowMock1, tvShowMock2]);
+});
+
+it('removeTvShowToAListOfFavourites', () => {
+  expect(
+    removeTvShowFromAListOfFavourites([tvShowMock1, tvShowMock2], tvShowMock1),
+  ).toEqual([tvShowMock2]);
+  expect(
+    removeTvShowFromAListOfFavourites([tvShowMock1, tvShowMock2], tvShowMock3),
+  ).toEqual([tvShowMock1, tvShowMock2]);
+  expect(removeTvShowFromAListOfFavourites([], tvShowMock2)).toEqual([]);
 });

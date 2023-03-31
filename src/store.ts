@@ -1,6 +1,10 @@
 import {applyMiddleware, createStore} from 'redux';
 import {TvShow} from './model/tv-show.type';
-import {persistTvShowsAsFavourites} from './model/tv-show.service';
+import {
+  addTvShowToAListOfFavourites,
+  persistTvShowsAsFavourites,
+  removeTvShowFromAListOfFavourites,
+} from './model/tv-show.service';
 
 export const setFavourites = (tvShows: Array<TvShow>) => ({
   type: 'favouriteTvShows/set',
@@ -24,11 +28,17 @@ export function getFavouriteTvShows(state: any) {
 function favouriteTvShowsReducer(state = {favouriteTvShows: []}, action: any) {
   switch (action.type) {
     case 'favouriteTvShows/add':
-      return {favouriteTvShows: state.favouriteTvShows.concat(action.payload)};
+      return {
+        favouriteTvShows: addTvShowToAListOfFavourites(
+          state.favouriteTvShows,
+          action.payload,
+        ),
+      };
     case 'favouriteTvShows/remove':
       return {
-        favouriteTvShows: state.favouriteTvShows.filter(
-          (favourite: TvShow) => favourite.show.id !== action.payload.show.id,
+        favouriteTvShows: removeTvShowFromAListOfFavourites(
+          state.favouriteTvShows,
+          action.payload,
         ),
       };
     case 'favouriteTvShows/set':
