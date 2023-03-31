@@ -17,7 +17,9 @@ export const removeFavourite = (tvShow: TvShow) => ({
   payload: tvShow,
 });
 
-export const getFavouriteTvShows = (state: any) => state.favouriteTvShows;
+export function getFavouriteTvShows(state: any) {
+  return state.favouriteTvShows;
+}
 
 function favouriteTvShowsReducer(state = {favouriteTvShows: []}, action: any) {
   switch (action.type) {
@@ -36,7 +38,7 @@ function favouriteTvShowsReducer(state = {favouriteTvShows: []}, action: any) {
   }
 }
 
-const persistFavourites = store => next => action => {
+const persistFavourites = (store: any) => (next: any) => (action: any) => {
   const result = next(action);
   if (
     action.type === 'favouriteTvShows/add' ||

@@ -11,8 +11,4 @@ export type TvShow = {
   };
 };
 
-export type PersistedFavouriteTvShows = {
-  [tvShowId: string]: TvShow;
-};
-
 export type PersistedTvShowQueryResult = Array<TvShow>;
