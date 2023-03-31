@@ -1,5 +1,5 @@
 ## Running the application
-Make sure to have all the prerequisites from https://reactnative.dev/docs/environment-setup?guide=native.
+Make sure to have setup all the prerequisites from https://reactnative.dev/docs/environment-setup?guide=native.
 
 1. Run `npm ci` in root folder
 2. Run `npx pod-install ios`
