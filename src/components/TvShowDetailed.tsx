@@ -19,8 +19,6 @@ export default function TvShowDetailed(props: {tvShow: TvShow}) {
   const dispatch = useDispatch();
   const favourites = useSelector(getFavouriteTvShows);
 
-  const errorChangingFavourite = false;
-
   function onAddAsFavourite(): void {
     dispatch(addFavourite(props.tvShow));
   }
@@ -53,12 +51,6 @@ export default function TvShowDetailed(props: {tvShow: TvShow}) {
           onPress={onAddAsFavourite}
         />
       )}
-      {errorChangingFavourite ? (
-        <Text style={styles.bodyText}>
-          There was an error changing your favourite TV shows list, please try
-          again.
-        </Text>
-      ) : null}
       {props.tvShow.show.premiered ? (
         <Text style={styles.tvShowPremiered}>
           Premiered: {props.tvShow.show.premiered}
@@ -104,10 +96,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#555',
     paddingLeft: 24,
-  },
-  bodyText: {
-    fontSize: 14,
-    paddingLeft: 24,
-    paddingRight: 24,
   },
 });
