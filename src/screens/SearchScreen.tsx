@@ -17,7 +17,7 @@ import TvShowCompactTouchable from './../components/TvShowCompactTouchable';
 import {useDispatch} from 'react-redux';
 import {setFavourites} from '../store';
 
-export default function SearchScreen({navigation}: any) {
+export default function SearchScreen({navigation}: any): ReactElement {
   const [tvShows, setTvShows] = useState<Array<TvShow>>([]);
   const [error, setError] = useState('');
   const [loadingTvShows, setLoadingTvShows] = useState(false);
@@ -115,7 +115,7 @@ function SearchScreenBody(props: {
   }
 }
 
-function NoTvShowsToList() {
+function NoTvShowsToList(): ReactElement {
   return <Text style={styles.bodyText}>Nothing to show</Text>;
 }
 

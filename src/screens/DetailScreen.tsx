@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import TvShowDetailed from './../components/TvShowDetailed';
 
-export default function DetailScreen({route}: any) {
+export default function DetailScreen({route}: any): ReactElement {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.view}>

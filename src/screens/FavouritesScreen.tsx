@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {FlatList, Text, SafeAreaView, StyleSheet} from 'react-native';
 import {TvShow} from './../model/tv-show.type';
 import TvShowCompactTouchable from './../components/TvShowCompactTouchable';
 import {useSelector} from 'react-redux';
 import {getFavouriteTvShows} from '../store';
 
-export default function FavouritesScreen({navigation}: any) {
+export default function FavouritesScreen({navigation}: any): ReactElement {
   const favourites = useSelector(getFavouriteTvShows);
 
   function onPressTvShow(item: TvShow) {
@@ -29,7 +29,7 @@ export default function FavouritesScreen({navigation}: any) {
   );
 }
 
-function EmptyFavouritesList() {
+function EmptyFavouritesList(): ReactElement {
   return <Text style={styles.bodyText}>No favourites added</Text>;
 }
 

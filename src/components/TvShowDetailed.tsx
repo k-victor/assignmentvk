@@ -7,14 +7,14 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {TvShow} from './../model/tv-show.type';
 import {isFavouriteTvShow} from './../model/tv-show.service';
 import RenderHtml from 'react-native-render-html';
 import {addFavourite, getFavouriteTvShows, removeFavourite} from '../store';
 import {useDispatch, useSelector} from 'react-redux';
 
-export default function TvShowDetailed(props: {tvShow: TvShow}) {
+export default function TvShowDetailed(props: {tvShow: TvShow}): ReactElement {
   const {width} = useWindowDimensions();
   const dispatch = useDispatch();
   const favourites = useSelector(getFavouriteTvShows);

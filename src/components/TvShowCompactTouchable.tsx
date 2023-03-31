@@ -1,11 +1,11 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {TvShow} from './../model/tv-show.type';
 
 export default function TvShowCompactTouchable(props: {
   tvShow: TvShow;
   onPress: () => void;
-}) {
+}): ReactElement {
   return (
     <TouchableOpacity style={styles.tvShow} onPress={props.onPress}>
       {props.tvShow.show.image ? (
