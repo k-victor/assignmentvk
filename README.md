@@ -13,7 +13,7 @@ Run `npm run test`
 
 ##
 Future improvements and general comments
-- As I’m not familiar with the React Native ecosystem I have used packages that seem to be the most official. Might be better alternatives out there.
+- As I’m not familiar with the React Native ecosystem I have used packages that seem to be the most official and suitable. Might be better alternatives out there.
 - Improve error handling structure, in terms of creating types for different error codes from the API and such, and also try/catching closer to the origin and centralise the different error states in redux.
 - The solution for detecting poor internet connection feels kind of naive and not fine tuned. I would look at it as a first draft. Interested to hear how you typically solve it.
 - Component testing should be done. I skipped this since I’m not familiar with react native component testing. Did a few unit tests of service code, though.
